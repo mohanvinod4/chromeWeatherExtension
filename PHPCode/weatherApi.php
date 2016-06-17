@@ -24,7 +24,7 @@ class weatherAPI
 	* @param string $location
 	* @return url
 	*/
-    function getLocationURL($location = "bangalore")
+    protected function getLocationURL($location = "bangalore")
     {
         return YAHOO_URL . urlencode(sprintf("select * from geo.places where text = '%s'", $location)) . "&format=json";
     }
@@ -35,7 +35,7 @@ class weatherAPI
 	* @param integer $locationID
 	* @return url
 	*/
-    function getWeatherURL($locationID)
+    protected function getWeatherURL($locationID)
     {
         return YAHOO_URL . urlencode(sprintf("select * from weather.forecast where woeid=%d and u='C'", $locationID)) . "&format=json";
     }
@@ -46,7 +46,7 @@ class weatherAPI
 	* @param string $url
 	* @return array
 	*/
-    function getContent($url)
+    protected function getContent($url)
     {
         return json_decode(file_get_contents($url));
     }
@@ -56,7 +56,7 @@ class weatherAPI
 	*
 	* @param string $location
 	*/
-    function __construct($location)
+    public function __construct($location)
     {
 		//Get locationID
         $locationObject = $this->getContent($this->getLocationURL($location));
@@ -91,7 +91,7 @@ class weatherAPI
 	*
 	* @return json data
 	*/
-    function getResult()
+    public function getResult()
     {
         return $this->result ? json_encode($this->result) : null;
     }
