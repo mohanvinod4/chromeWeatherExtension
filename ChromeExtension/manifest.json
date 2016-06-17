@@ -1,0 +1,22 @@
+{
+  "manifest_version": 2,
+
+  "name": "Weather Report",
+  "description": "This extension will give weather report",
+  "version": "1.0",
+  "icons": { 
+		"16" : "img/home_icon_16.png",
+		"48" : "img/home_icon_48.png",
+		"128" : "img/home_icon_128.png"
+  },
+  "browser_action": {
+   "default_title": "Weather Report",
+   "default_icon": "img/home_icon_16.png",
+   "default_popup": "popup.html"
+  },
+  "permissions": [
+   "activeTab",
+   "http://*/",
+   "https://*/"
+   ]
+}
