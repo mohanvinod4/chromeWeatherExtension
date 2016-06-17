@@ -7,6 +7,8 @@ if (empty($_GET['location'])) {
 
 require_once('weatherApi.php');
 
+//create object to weatherApi class
 $weatherApiObj = new weatherApi($_GET['location']);
 
+//echo result
 echo $weatherApiObj->getResult();
